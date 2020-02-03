@@ -1,0 +1,69 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Catalog"
+        xmlns:Properties="clr-namespace:Catalog.Properties" x:Class="Catalog.MainWindow"
+        mc:Ignorable="d"
+        Title="Каталог" Height="480" Width="1250">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Menu Height="30" VerticalAlignment="Top">
+                <MenuItem Header="Настройки" FontSize="14">
+                    <MenuItem Header="Категории" FontSize="14">
+                        <MenuItem Header="Добавление" FontSize="14" Click="CategoryAddButton"/>
+                        <MenuItem Header="Удаление" FontSize="14" Click="CategoryDeleteButton"/>
+                    </MenuItem>
+                    <MenuItem Header="Прогресс" FontSize="14">
+                        <MenuItem Header="Добавление" FontSize="14" Click="ProgressAddButton"/>
+                        <MenuItem Header="Удаление" FontSize="14" Click="ProgressDeleteButton"/>
+                    </MenuItem>
+                    <MenuItem Header="Тип литературы" FontSize="14">
+                        <MenuItem Header="Добавление" FontSize="14" Click="LTAddButton"/>
+                        <MenuItem Header="Удаление" FontSize="14" Click="LTDeleteButton"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Поиск" FontSize="14">
+                    <MenuItem Header="Литературы" FontSize="14">
+                        <MenuItem Header="По типу" FontSize="14" Click="TypeRearch"/>
+                        <MenuItem Header="По прогрессу" FontSize="14" Click="ProgressRearch"/>
+                        <MenuItem Header="По категории" FontSize="14" Click="CategoryRearch"/>
+                        <MenuItem Header="По автору" FontSize="14" Click="AuthorRearch"/>
+                        <MenuItem Header="Показать всё" FontSize="14" Click="ShowAll"/>
+                        <MenuItem Header="По нескольким параметрам" FontSize="14" Click="SeveralParams"/>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>            
+        </Grid>
+        <DataGrid AutoGenerateColumns="False" x:Name="catalogGrid" Grid.Row="1" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name, Mode=TwoWay}" Header="Название" Width="200"/>
+                <DataGridTextColumn Binding="{Binding Author, Mode=TwoWay}" Header="Автор" Width="200"/>
+                <DataGridTextColumn Binding="{Binding Progress, Mode=TwoWay}" Header="Прогресс" Width="200"/>
+                <DataGridTextColumn Binding="{Binding Category, Mode=TwoWay}" Header="Категория" Width="200"/>
+                <DataGridTextColumn Binding="{Binding LiteratureType, Mode=TwoWay}" Header="Тип литературы" Width="200"/>
+                <DataGridTextColumn Binding="{Binding Description, Mode=TwoWay}" Header="Описание" Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Добавить" Click="AddBookButton" Grid.Row="2" Grid.Column="0" FontSize="16"/>
+            <Button Content="Сохранить изменения" Click="SaveChangeButton" Grid.Row="2" Grid.Column="1" FontSize="16"/>
+            <Button Content="Удалить" Click="DeleteBookButton" Grid.Row="2" Grid.Column="2" FontSize="16"/>
+            <Button Content="Открыть" Click="OpenBookButton" Grid.Row="2" Grid.Column="3" FontSize="16"/>
+            <Button Content="Закрыть" Click="CloseButton" Grid.Row="2" Grid.Column="4" FontSize="16"/>
+        </Grid>
+    </Grid>
+</Window>

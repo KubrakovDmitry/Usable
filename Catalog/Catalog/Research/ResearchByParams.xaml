@@ -1,0 +1,32 @@
+﻿<Window x:Class="Catalog.Research.ResearchByParams"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Catalog.Research"
+        mc:Ignorable="d"
+        Title="Поиск по нескольким параметрам" Height="400" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <CheckBox  x:Name="AuthorRadioButton" IsChecked="False" Content="по автору" x:FieldModifier="internal" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <CheckBox  x:Name="TypeRadioButton" IsChecked="False" Content="по типу литературы" x:FieldModifier="internal" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <CheckBox  x:Name="CategoryRadioButton" IsChecked="False" Content="по категоря" x:FieldModifier="internal" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <CheckBox  x:Name="ProgressRadioButton" IsChecked="False" Content="по прогресс" x:FieldModifier="internal" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="AuthorTextBox" x:FieldModifier="internal" Width="180" Height="30" Grid.Column="1" Grid.Row="0"/>
+        <ComboBox x:Name="TypeComboBox" x:FieldModifier="internal" Width="180" Height="30" Grid.Column="1" Grid.Row="1"/>
+        <ComboBox x:Name="CategoryComboBox" x:FieldModifier="internal" Width="180" Height="30" Grid.Column="1" Grid.Row="2"/>
+        <ComboBox x:Name="ProgressComboBox" x:FieldModifier="internal" Width="180" Height="30" Grid.Column="1" Grid.Row="3"/>
+        <Button Content="Найти" IsDefault="True" Width="100" Height="30" Click="ResearchClick" Grid.Column="0" Grid.Row="4"/>
+        <Button Content="Отмена" IsCancel="True" Width="100" Height="30" Grid.Column="1" Grid.Row="4"/>
+    </Grid>
+</Window>

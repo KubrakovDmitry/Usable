@@ -1,0 +1,44 @@
+﻿    <Window x:Class="Catalog.BookAdding"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Catalog"
+        mc:Ignorable="d"
+        Title="Добавление книги" Height="650" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="1*" />
+            <ColumnDefinition Width ="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="55"/>
+        </Grid.RowDefinitions>
+        <Label Target="{Binding ElementName = NameTextBox}" Content="Название книги" Width="150" Height="30" Grid.Column="0" Grid.Row="0"/>
+        <TextBox x:Name="NameTextBox" x:FieldModifier="internal" Width="150" Height="30" Grid.Column="1" Grid.Row="0"/>
+        <Label Target="{Binding ElementName = AuthorTextBox}" Content="Автор" Width="150" Height="30" Grid.Column="0" Grid.Row="1"/>
+        <TextBox x:Name="AuthorTextBox" x:FieldModifier="internal" Width="150" Height="30" Grid.Column="1" Grid.Row="1"/>
+        <Label Target="{Binding ElementName = ProgressComboBox}" Content="Прогресс" Width="150" Height="30" Grid.Column="0" Grid.Row="2"/>
+        <ComboBox x:Name="ProgressComboBox" x:FieldModifier="internal" IsEditable="True"   Width="150" Height="30" Grid.Column="1" Grid.Row="2" />
+        <Label Target="{Binding ElementName = PathTextBox}" Content="Путь к файлу" Width="150" Height="30" Grid.Column="0" Grid.Row="3"/>
+        <TextBox x:Name="PathTextBox" x:FieldModifier="internal" Width="150" Height="30" Grid.Column="1" Grid.Row="3"/>
+        <Label Target="{Binding ElementName = FileNameTextBox}" Content="Имя файла" Width="150" Height="30" Grid.Column="0" Grid.Row="4"/>
+        <TextBox x:Name="FileNameTextBox" x:FieldModifier="internal" Width="150" Height="30" Grid.Column="1" Grid.Row="4"/>
+        <Label Target="{Binding ElementName = CategoryComboBox}" Content="Категория" Width="150" Height="30" Grid.Column="0" Grid.Row="5"/>
+        <ComboBox x:Name="CategoryComboBox" x:FieldModifier="internal" IsEditable="True" Width="150" Height="30" Grid.Column="1" Grid.Row="5"/>
+        <Label Target="{Binding ElementName = LiteratureTypeComboBox}" Content="Тип литературы" Width="150" Height="30" Grid.Column="0" Grid.Row="6"/>
+        <ComboBox x:Name="LiteratureTypeComboBox" x:FieldModifier="internal" IsEditable="True" Width="150" Height="30" Grid.Column="1" Grid.Row="6"/>
+        <Label Target="{Binding ElementName = DescriptionTextBox}" Content="Описание" Width="150" Height="30" Grid.Column="0" Grid.Row="7"/>
+        <TextBox x:Name="DescriptionTextBox" x:FieldModifier="internal" Width="150" Height="150" Grid.Column="1" Grid.Row="7" TextWrapping="Wrap"/>
+        <Button x:Name="OkButton" x:FieldModifier="internal" Width="150" Height="50" Content="OK" IsDefault="True" Click="OkButton_Click" Grid.Column="0" Grid.Row="8"/>
+        <Button x:Name="CancelButton" x:FieldModifier="internal" Width="150" Height="50" Content="Отмена" IsCancel="True" Grid.Column="1" Grid.Row="8"/>
+    </Grid>
+</Window>

@@ -1,0 +1,168 @@
+﻿<Window x:Class="Electrical_note_book.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Electrical_note_book"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="495">
+    <Window.Icon>
+        <BitmapImage UriSource ="D:\MAI\Program practices\CSharp_Practice\Usable\Electrical note book\book-bookmark-icon_34486.ico"/>
+    </Window.Icon>
+    <Grid>
+        <TabControl>
+            <TabItem Header="Список дел">
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <RichTextBox x:Name="docBox" Grid.Row="0" />
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Content="Сохранить" Click="Save_Click" Grid.Row="1" Grid.Column="0"/>
+                            <Button Content="Загрузить"  Click="Load_Click" Grid.Column="1" Grid.Row="1"/>
+                        </Grid>
+                    </Grid>
+
+                </TabItem.Content>
+
+            </TabItem>
+            <TabItem Header="Контакты">
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <DataGrid AutoGenerateColumns="False" x:Name="contactGrid">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="200"/>
+                                <DataGridTextColumn Binding="{Binding MainTelephone}" Header="Основной телефон" Width="200"/>
+ 
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Grid Grid.Row="1" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Content="Создать" Click="Create_Click" Grid.Row="1" Grid.Column="0" />
+                            <Button Content="Обновить" Click="Change_Click" Grid.Row="1" Grid.Column="1" />
+                            <Button Content="Удалить"  Click="Delete_Click" Grid.Row="1" Grid.Column="2" />
+                        </Grid>                        
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Телефоны" >
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <DataGrid AutoGenerateColumns = "False" x:Name="phonesGrid">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="200"/>
+                                <DataGridTextColumn Binding="{Binding telephone}" Header="Телефон" Width="200" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Grid Grid.Row="1" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Content="Добавить телефона" Click="Add_phone_click" Grid.Column="0" Grid.Row="1" />
+                            <Button Content="Сохранить изменения" Click="Save_click_phones" Grid.Row="1" Grid.Column="1" />
+                            <Button Content="Удалить телефон" Click="Delete_telephones_click" Grid.Row="1" Grid.Column="2"/>
+                        </Grid>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Почты">
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <DataGrid AutoGenerateColumns="False" x:Name="emailGrid">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="200"/>
+                                <DataGridTextColumn Binding="{Binding email}" Header="Почта" Width="200" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Grid Grid.Row="1" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Content="Добавить телефона" Click="Add_email_click" Grid.Column="0" Grid.Row="1" />
+                            <Button Content="Сохранить изменения" Click="Save_click_email" Grid.Row="1" Grid.Column="1" />
+                            <Button Content="Удалить почту" Click="Delete_email_click" Grid.Row="1" Grid.Column="2"/>
+                        </Grid>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Дени Рождения" >
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <DataGrid AutoGenerateColumns="False" x:Name="birthdayCrid" >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="200" />
+                                <DataGridTextColumn Binding="{Binding Birthday}" Header="День Рождения" Width="200" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Content="Сохранить изменения" Click="Save_click_birthday" Grid.Row="1" Grid.Column="0" />
+                            <Button Content="Удалить" Click="Delete_birthday_click" Grid.Row="1" Grid.Column="1" />
+                        </Grid>
+                        
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Логины и пароли">
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <DataGrid AutoGenerateColumns="False" x:Name="AccountGrid" >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Name}" Header="Название" Width="200" />
+                                <DataGridTextColumn Binding="{Binding Login}" Header="Логин" Width="200" />
+                                <DataGridTextColumn Binding="{Binding Password}" Header="Пароль" Width="200" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Content="Обновить" Click="UpdateButton_Click" Grid.Row="1" Grid.Column="0"/>
+                            <Button Content="Удалить" Click="DeleteButton_Click" Grid.Row="1" Grid.Column="1" />
+                        </Grid>                        
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

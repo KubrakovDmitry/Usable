@@ -1,0 +1,26 @@
+﻿<Window x:Class="Electrical_note_book.PhoneWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Electrical_note_book"
+        mc:Ignorable="d"
+        Title="Телефон" Height="110" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Target="{Binding ElementName=NameComboBox}" Grid.Column="0" Grid.Row="0" >Выберите имя</Label>
+        <Label Target="{Binding ElementName=PhoneTextBox}" Grid.Column="0" Grid.Row="1" >Введите телефон</Label>
+        <ComboBox x:Name="NameComboBox" x:FieldModifier="internal" ItemsSource="{Binding Name}" Grid.Column="1" Grid.Row="0" />
+        <TextBox x:Name="PhoneTextBox" x:FieldModifier="internal" Grid.Column="1" Grid.Row="1" />
+        <Button x:Name="OkButton" x:FieldModifier="internal" Content="OK" Click="OK_Click" Grid.Column="0" Grid.Row="2" IsDefault="True" />
+        <Button x:Name="CancelButton" x:FieldModifier="internal" Content="Отмена" Grid.Column="1" Grid.Row="2" IsCancel="True"/>
+    </Grid>
+</Window>
